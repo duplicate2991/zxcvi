@@ -4,6 +4,8 @@ const port = 3000;
 const items = ['Item 1', 'Item 2', 'Item 3'];
 
 var router = require("./router.js");
+app.set('views', __dirname + '/../views');
+
 app.set('view engine', 'ejs');
 app.use("/", router);
 // Set EJS as the view engine
