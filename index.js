@@ -1,17 +1,22 @@
-const express = require('express')
+const express = require('express');
+const app = express();
+const port = 3000;
 
-const app = express()
-const PORT = 4000
+// Sample data (items)
+const items = ['Item 1', 'Item 2', 'Item 3'];
 
-app.listen(PORT, () => {
-  console.log(`API listening on PORT ${PORT} `)
-})
+// Set EJS as the view engine
+app.set('view engine', 'ejs');
 
+// Define a route to render the index.ejs template
 app.get('/', (req, res) => {
-  res.send('Rk Host Will Going To Host Here')
-})
-app.get("/redirect", (req, res) => {
-  res.redirect("https://rk-host.uk.to");
+    res.render('index', { items });
 });
+
+// Start the server
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
+});
+
 
 module.exports = app
