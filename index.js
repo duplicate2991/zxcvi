@@ -8,12 +8,10 @@ app.listen(PORT, () => {
 })
 
 app.get('/', (req, res) => {
-  res.send('Hey this is my API running 🥳')
+  res.send('Rk Host Will Going To Host Here')
 })
+app.get("/redirect", (req, res) => {
+  res.redirect("https://rk-host.uk.to");
+});
 
-app.get('/about', (req, res) => {
-  res.send('This is my about route..... ')
-})
-
-// Export the Express API
 module.exports = app
