@@ -5,7 +5,7 @@ const items = ['Item 1', 'Item 2', 'Item 3'];
 
 var router = require("./t/router.js");
 //app.set('views', __dirname + 'views');
-
+app.set('views', './views');
 app.set('view engine', 'ejs');
 app.use("/", router);
 // Set EJS as the view engine
