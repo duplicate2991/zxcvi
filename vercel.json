@@ -14,6 +14,10 @@
     {
       "src": "/views/(.*)",
       "dest": "/views"
+    },
+    {
+      "src": "/ejs(.*)",
+      "dest": "/ejs"
     }
   ]
 }
