@@ -51,5 +51,10 @@ if(msg.content.startsWith(".uptime")){
     msg.reply({content: `${ms(client.uptime).days}:${ms(client.uptime).hours}:${ms(client.uptime).minutes}:${ms(client.uptime).seconds}:`});
   }
 });
+client.on("messageCreate", async(msg) => {
+if(msg.content.startsWith(".ping")){
+    msg.reply({content: `${client.ws.ping}`});
+  }
+});
 
 client.login(process.env.TOKEN);
