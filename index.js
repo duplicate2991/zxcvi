@@ -73,8 +73,19 @@ if(msg.content.startsWith(".ping")){
 
 			client.on("messageCreate", async(msg) => {
 if(msg.content.startsWith(".server")){
-    msg.reply({content: `${host}:${portt}`});
+    msg.reply({content: `${server.address()}:${portt}`});
   }
 });
 
 client.login(process.env.TOKEN);
+
+
+
+
+
+
+
+
+
+
+			
