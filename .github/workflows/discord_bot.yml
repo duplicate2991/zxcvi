@@ -28,7 +28,7 @@ jobs:
         run: |
           wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
           unzip ngrok-stable-linux-amd64.zip
-          ./ngrok config add-authtoken 2Arm2WXUJ5p7gwQtE0ECRZTtTFh_2faaWm27kcLeeguQKkwjS
+          ./ngrok add-authtoken 2Arm2WXUJ5p7gwQtE0ECRZTtTFh_2faaWm27kcLeeguQKkwjS
 
       - name: Start ngrok Tunnel
         run: ./ngrok http 3000  # Assuming your Express app runs on port 3000
