@@ -1,11 +1,16 @@
-const express = require('express');
-const app = express();
-const port = 3000;
-const server = app.listen(port, () => {
-  const host = server.address().address;
-  const port = server.address().port;
-  console.log(`Server listening at http://${host}:${port}`);
+var { Client, GatewayIntentBits } = require('discord.js');
+const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`);
 });
-app.get("/", (q, res) => {
-    res.send("hii");
+
+client.on('interactionCreate', async interaction => {
+  if (!interaction.isChatInputCommand()) return;
+
+  if (interaction.commandName === 'ping') {
+    await interaction.reply('Pong!');
+  }
 });
+
+client.login(TOKEN);
