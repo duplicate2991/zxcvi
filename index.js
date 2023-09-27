@@ -34,6 +34,20 @@ const client = new Client({
       GatewayIntentBits.GuildVoiceStates
     ]
   });
+const express = require('express');
+const app = express();
+const port = 3000;
+const server = app.listen(port, () => {
+  
+});
+const host = server.address().address;
+  const portt = server.address().port;
+  console.log(`Server listening at http://${host}:${port}`);
+
+
+app.get("/", (q, res) => {
+    res.send("hii");
+});
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -54,6 +68,12 @@ if(msg.content.startsWith(".uptime")){
 client.on("messageCreate", async(msg) => {
 if(msg.content.startsWith(".ping")){
     msg.reply({content: `${client.ws.ping}`});
+  }
+});
+
+			client.on("messageCreate", async(msg) => {
+if(msg.content.startsWith(".server")){
+    msg.reply({content: `${host}:${portt}`});
   }
 });
 
