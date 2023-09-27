@@ -19,7 +19,7 @@ jobs:
           node-version: 16  # Change to your Node.js version
 
       - name: Install dependencies
-        run: npm install
+        run: npm install discord.js
 
       - name: Run Discord Bot
         env:
