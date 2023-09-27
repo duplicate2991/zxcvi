@@ -28,8 +28,8 @@ jobs:
         env:
           TOKEN: ${{ secrets.TOKEN }}
         run: node index.js  # Replace with your bot's main file
-
-        - name: Set up ngrok
+     
+      - name: Set up ngrok
         run: |
           wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
           unzip ngrok-stable-linux-amd64.zip
