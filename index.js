@@ -1,4 +1,5 @@
 var { Client, GatewayIntentBits } = require('discord.js');
+  var { GatewayIntentBits, Partials, Client, Events } = require("discord.js"); 
 function ms(milliseconds){
     const roundTowardsZero = milliseconds > 0 ? Math.floor : Math.ceil;
 	return {
@@ -11,7 +12,28 @@ function ms(milliseconds){
 		nanoseconds: roundTowardsZero(milliseconds * 1e6) % 1000
 	};
 }
-const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+const client = new Client({
+    fetchAllMembers: true,
+    restTimeOffset: 0,
+    failIfNotExists: false,
+    shards: "auto",
+    shardCount: 5,
+    allowedMentions: {
+      parse: ["roles", "users"],
+      repliedUser: true,
+    },
+    partials: ['MESSAGE', 'CHANNEL', 'REACTION', 'GUILD_MEMBER', 'USER', 'MANAGE_MESSAGE', 'DIRECT_MESSAGE', Partials.Channel, Partials.Message, Partials.User, Partials.GuildMember, Partials.Reaction],
+    intents: [
+      GatewayIntentBits.Guilds,
+      GatewayIntentBits.GuildMessages,
+      GatewayIntentBits.GuildMessageReactions,
+      GatewayIntentBits.GuildPresences,
+      GatewayIntentBits.MessageContent,
+      GatewayIntentBits.DirectMessages,
+      GatewayIntentBits.MessageContent,
+      GatewayIntentBits.GuildVoiceStates
+    ]
+  });
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
