@@ -24,4 +24,4 @@ jobs:
       - name: Run Discord Bot
         env:
           DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
-        run: node your_bot_file.js  # Replace with your bot's main file
+        run: index.js  # Replace with your bot's main file
