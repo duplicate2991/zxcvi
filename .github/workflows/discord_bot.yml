@@ -23,11 +23,6 @@ jobs:
         
       - name: Getting Url
         run: echo "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-        
-      - name: Run Discord Bot
-        env:
-          TOKEN: ${{ secrets.TOKEN }}
-        run: node index.js  # Replace with your bot's main file
      
       - name: Set up ngrok
         run: |
@@ -41,4 +36,10 @@ jobs:
       - name: Get ngrok Public URL
         run: echo "Public URL:$(curl -s http://localhost:4040/api/tunnels | jq -r '.tunnels[] | select(.proto == \"http\" and .config.addr == \"localhost:3000\") | .public_url')"
 
+   
+      - name: Run Discord Bot
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
+        run: node index.js  # Replace with your bot's main file
+     
 
