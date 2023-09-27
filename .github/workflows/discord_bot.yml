@@ -22,6 +22,7 @@ jobs:
         run: npm install discord.js
 
       - name: Run Discord Bot
+        run: echo "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
         env:
           TOKEN: ${{ secrets.TOKEN }}
         run: node index.js  # Replace with your bot's main file
