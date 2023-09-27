@@ -30,9 +30,6 @@ jobs:
           unzip ngrok-stable-linux-amd64.zip
           ./ngrok authtoken 2Arm2WXUJ5p7gwQtE0ECRZTtTFh_2faaWm27kcLeeguQKkwjS
 
-      - name: Start ngrok Tunnel
-        run: ./ngrok http 3000  # Assuming your Express app runs on port 3000
-
       - name: Get ngrok Public URL
         run: echo "Public URL:$(curl -s http://localhost:4040/api/tunnels | jq -r '.tunnels[] | select(.proto == \"http\" and .config.addr == \"localhost:3000\") | .public_url')"
 
