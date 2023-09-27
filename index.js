@@ -48,7 +48,7 @@ client.on('interactionCreate', async interaction => {
 });
 client.on("messageCreate", async(msg) => {
 if(msg.content.startsWith(".uptime")){
-    message.reply({content: `${ms(client.uptime).days}:${ms(client.uptime).hours}:${ms(client.uptime).minutes}:${ms(client.uptime).seconds}:`});
+    msg.reply({content: `${ms(client.uptime).days}:${ms(client.uptime).hours}:${ms(client.uptime).minutes}:${ms(client.uptime).seconds}:`});
   }
 });
 
