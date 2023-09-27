@@ -39,4 +39,6 @@ jobs:
         run: ./ngrok http 3000  # Assuming your Express app runs on port 3000
 
       - name: Get ngrok Public URL
-        run: echo "Public URL: $(curl -s http://localhost:4040/api/tunnels | jq -r '.tunnels[0].public_url')"
+        run: echo "Public URL:$(curl -s http://localhost:4040/api/tunnels | jq -r '.tunnels[] | select(.proto == \"http\" and .config.addr == \"localhost:3000\") | .public_url')"
+
+
