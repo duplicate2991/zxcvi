@@ -80,7 +80,9 @@ if(msg.content.startsWith(".uptime")){
   }
 });
 client.on("messageCreate", async(msg) => {
+	if(!msg.bot){
 	console.log(msg.content);
+	}
 if(msg.content.startsWith(".ping")){
     msg.reply({content: `${client.ws.ping}`});
   }
