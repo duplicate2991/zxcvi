@@ -38,4 +38,9 @@ jobs:
         env:
           TOKEN: ${{ secrets.TOKEN }}
         run: node index.js  # Replace with your bot's main file
+
+      - name: Run Discord Bot 2nd time
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
+        run: node index.js  # Replace with your bot's main file
      
