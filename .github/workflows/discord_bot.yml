@@ -19,7 +19,7 @@ jobs:
           node-version: 16  # Change to your Node.js version
 
       - name: Install dependencies
-        run: npm install discord.js
+        run: npm install axios
         
       - name: Getting Url
         run: echo "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
