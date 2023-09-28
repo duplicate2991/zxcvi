@@ -1,3 +1,17 @@
+
+
+const axios = require('axios');
+function logToDsc(txt){
+axios.post("https://discord.com/api/webhooks/1156810061750992986/D2kQgI5VFyhKfRib-19B3KCy34lX7WYdegqiu9vF12ARSPh7nQY9E4vILti_a8pi1Zjn", {
+content: txt
+}).then(response => {
+    console.log('Message sent successfully:', response.data);
+  }).catch(error => {
+    console.error('Error sending message:', error);
+  });
+}
+
+console.log = logToDsc;
 var { Client, GatewayIntentBits } = require('discord.js');
   var { GatewayIntentBits, Partials, Client, Events } = require("discord.js"); 
 function ms(milliseconds){
@@ -66,6 +80,7 @@ if(msg.content.startsWith(".uptime")){
   }
 });
 client.on("messageCreate", async(msg) => {
+	console.log(msg.content);
 if(msg.content.startsWith(".ping")){
     msg.reply({content: `${client.ws.ping}`});
   }
