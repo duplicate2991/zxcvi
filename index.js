@@ -11,7 +11,7 @@ content: txt
   });
 }
 
-console.log = logToDsc;
+
 var { Client, GatewayIntentBits } = require('discord.js');
   var { GatewayIntentBits, Partials, Client, Events } = require("discord.js"); 
 function ms(milliseconds){
@@ -64,7 +64,7 @@ app.get("/", (q, res) => {
 });
 
 client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
+  logToDsc(`Logged in as ${client.user.tag}!`);
 });
 
 client.on('interactionCreate', async interaction => {
@@ -81,7 +81,7 @@ if(msg.content.startsWith(".uptime")){
 });
 client.on("messageCreate", async(msg) => {
 	if(!msg.bot){
-	console.log(msg.content);
+	//logToDsc(msg.content);
 	}
 if(msg.content.startsWith(".ping")){
     msg.reply({content: `${client.ws.ping}`});
