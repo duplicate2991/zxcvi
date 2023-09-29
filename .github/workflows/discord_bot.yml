@@ -35,7 +35,6 @@ jobs:
 
    
       - name: Run Discord Bot
-        timeout-minutes: 3600
         env:
           TOKEN: ${{ secrets.TOKEN }}
         run: node index.js  # Replace with your bot's main file
